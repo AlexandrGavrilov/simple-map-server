@@ -1,5 +1,6 @@
 const express = require('express');
 const mongoose = require('mongoose');
+const path = require('path');
 const bodyParser = require('body-parser');
 const cookieParser = require("cookie-parser");
 const cors = require('cors');
@@ -17,6 +18,10 @@ app.use(cors({
   credentials: true,
   origin: true,
 }))
+
+app.use('/', (req, res) => {
+  res.sendFile(path.join(__dirname, './client/build/index.html'));
+})
 
 app.use('/api/user', userRoute);
 
