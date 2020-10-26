@@ -1,0 +1,26 @@
+{
+  "name": "simple-map-server",
+  "version": "1.0.0",
+  "main": "index.js",
+  "scripts": {
+    "start": "nodemon index.js"
+  },
+  "repository": "https://github.com/AlexandrGavrilov/simple-map-server.git",
+  "author": "Gavrilov Alexandr <@gavrilov.alex.official>",
+  "license": "MIT",
+  "dependencies": {
+    "2gis-maps": "^3.6.1",
+    "@hapi/joi": "^17.1.1",
+    "bcryptjs": "^2.4.3",
+    "body-parser": "^1.19.0",
+    "cookie-parser": "^1.4.5",
+    "cors": "^2.8.5",
+    "dotenv": "^8.2.0",
+    "express": "^4.17.1",
+    "jsonwebtoken": "^8.5.1",
+    "mongoose": "^5.10.10"
+  },
+  "devDependencies": {
+    "nodemon": "^2.0.6"
+  }
+}
