@@ -1,4 +1,4 @@
-const app = require('express')();
+const express = require('express');
 const mongoose = require('mongoose');
 const bodyParser = require('body-parser');
 const cookieParser = require("cookie-parser");
@@ -7,8 +7,11 @@ require('dotenv').config();
 
 const userRoute = require('./routes/user');
 
+const app = express();
+
 app.use(bodyParser.json());
 app.use(cookieParser());
+app.use(express.static('client/build'));
 
 app.use(cors({
   credentials: true,
