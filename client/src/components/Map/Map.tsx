@@ -68,8 +68,8 @@ export const Map: React.FC = memo(() => {
 			DG.marker([lat, lng]).addTo(map);
 		})
 
-		zoomMinusRef!.current!.onclick = () => map.zoomIn();
-		zoomPlusRef!.current!.onclick = () => map.zoomOut();
+		zoomMinusRef!.current!.onclick = () => map.zoomOut();
+		zoomPlusRef!.current!.onclick = () => map.zoomIn();
 
 		showMarkersRef!.current!.onclick = () => {
 			const markers = DG.featureGroup()
