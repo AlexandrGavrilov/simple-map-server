@@ -16,6 +16,7 @@ app.use(cookieParser());
 app.use(cors({
   credentials: true,
   origin: true,
+  preflightContinue: true,
 }))
 
 app.use('/api/user', userRoute);
