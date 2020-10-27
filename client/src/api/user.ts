@@ -9,7 +9,8 @@ const { baseApiUrl } = config;
 export const saveMarkersRequest = (markers: ICoords[]) => {
   return axios.post(`${baseApiUrl}/api/user/markers`, markers, {
     headers: {
-      'auth-token': Cookies.get('auth-token')
+      'auth-token': Cookies.get('auth-token'),
+      "x-requested-with": "xhr"
     }
   })
 }

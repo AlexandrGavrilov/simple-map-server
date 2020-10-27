@@ -9,11 +9,16 @@ import Cookies from 'js-cookie';
 export const loginRequest = ({ login, password }: ILoginSagaActionPayload) => {
   return axios.post(`${baseApiUrl}/api/user/login`, { login, password }, {
     headers: {
-      'auth-token': Cookies.get('auth-token')
+      'auth-token': Cookies.get('auth-token'),
+      "x-requested-with": "xhr"
     }
   })
 }
 
 export const registrationRequest = (data: IRegistrationActionPayload) => {
-  return axios.post(`${baseApiUrl}/api/user/register`, data)
+  return axios.post(`${baseApiUrl}/api/user/register`, data, {
+    headers: {
+      "x-requested-with": "xhr"
+    }
+  })
 }
