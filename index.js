@@ -18,12 +18,13 @@ app.use(cors({
   origin: true,
 }))
 
+app.use('/api/user', userRoute);
+
 app.use(express.static('client/build'));
 app.use((req, res) => {
   res.sendFile(path.join(__dirname, './client/build/index.html'));
 })
 
-app.use('/api/user', userRoute);
 
 mongoose.connect(
   process.env.DB_CONNECT,
