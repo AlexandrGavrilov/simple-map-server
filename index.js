@@ -31,4 +31,6 @@ mongoose.connect(
   () => console.log('Connected to DB')
 )
 
-app.listen(3030, () => console.log('Server in running'));
+const PORT = process.env.PORT || 3030;
+
+app.listen(PORT, () => console.log('Server in running'));
