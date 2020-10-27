@@ -12,14 +12,14 @@ const app = express();
 
 app.use(bodyParser.json());
 app.use(cookieParser());
-app.use(express.static('client/build'));
 
 app.use(cors({
   credentials: true,
   origin: true,
 }))
 
-app.use('/', (req, res) => {
+app.use(express.static('client/build'));
+app.use((req, res) => {
   res.sendFile(path.join(__dirname, './client/build/index.html'));
 })
 
