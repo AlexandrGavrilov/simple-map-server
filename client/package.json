@@ -6,7 +6,6 @@
   "scripts": {
     "start": "webpack-dev-server --config webpack.dev.js",
     "build": "webpack --config webpack.prod.js",
-    "build-dev": "webpack --config webpack.staging-dev.js",
     "test": "jest --config jest.config.js",
     "lint": "eslint --ignore-path .gitignore .",
     "lfix": "eslint --fix --ignore-path .gitignore ."
