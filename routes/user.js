@@ -26,7 +26,7 @@ router.post('/register', async (req, res) => {
 
   try {
     await user.save()
-    const token = jwt.sign({ id: user._id }, process.env.SECRED);
+    const token = jwt.sign({ id: user._id }, process.env.SECRED || 'secred');
     res.send({ login: user.login, token, markers: user.markers });
   } catch (e) {
     res.status(400).send(e);
@@ -39,7 +39,7 @@ router.post('/login', async (req, res) => {
 
   if (loginToken !== 'undefined') {
     try {
-      const verify = jwt.verify(loginToken, process.env.SECRED);
+      const verify = jwt.verify(loginToken, process.env.SECRED || 'secred');
       if (verify) {
         const user = await User.findById(verify.id)
         return res.header('auth-token', loginToken).send({ token: loginToken, login: user.login, markers: user.markers });
@@ -64,7 +64,7 @@ router.post('/login', async (req, res) => {
   const validPass = await bcrypt.compare(password, user.password)
   if(!validPass) return res.status(400).send('Email or password is wrong')
 
-  const token = jwt.sign({ id: user._id }, process.env.SECRED);
+  const token = jwt.sign({ id: user._id }, process.env.SECRED || 'secred');
 
   res.header('auth-token', token).send({ token, login: user.login, markers: user.markers });
 })
