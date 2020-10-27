@@ -81,7 +81,9 @@ export const Map: React.FC = memo(() => {
 			markers.addTo(map);
 		};
 
-		setMarkers(markers => ([ ...markers, ...userMarkers ]))
+		if (userMarkers) {
+			setMarkers(markers => ([ ...markers, ...userMarkers ]))
+		}
 	},[zoomPlusRef, zoomMinusRef, userMarkers, map])
 
 	if (hasError) {
