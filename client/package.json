@@ -2,7 +2,7 @@
   "name": "simple_map",
   "version": "0.1.0",
   "private": true,
-  "proxy": "https://simple-map-test.herokuapp.com:3030",
+  "proxy": "https://simple-map-test.herokuapp.com",
   "scripts": {
     "start": "webpack-dev-server --config webpack.dev.js",
     "build": "webpack --config webpack.prod.js",
